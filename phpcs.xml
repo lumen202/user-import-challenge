@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ruleset name="user-import">
+    <description>PSR-12, checked over every hand-written PHP file.</description>
+
+    <file>src</file>
+    <file>tests</file>
+    <file>public</file>
+    <file>user_upload.php</file>
+
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <rule ref="PSR12"/>
+
+    <!--
+        Entry-point scripts define helper functions AND run them; that is what an
+        entry point is. Exempted here by name rather than globally, so the rule
+        still applies to every file in src/ and tests/.
+    -->
+    <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>public/index.php</exclude-pattern>
+        <exclude-pattern>user_upload.php</exclude-pattern>
+    </rule>
+
+    <!-- The project targets 120 columns, not PSR-12's soft 80. -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="140"/>
+        </properties>
+    </rule>
+</ruleset>
