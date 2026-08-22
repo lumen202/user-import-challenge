@@ -1,6 +1,18 @@
 import { useState } from 'react';
 
 /**
+ * Presentation-only tidy-up of a server message.
+ *
+ * The core emits lowercase fragments ("missing name", "duplicate email
+ * (first seen on line 2)") because the same string is printed by the CLI
+ * inside a longer line. Capitalising happens here, in the view, so the
+ * shared validator keeps producing one string for both front ends.
+ */
+function sentenceCase(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+/**
  * One-page import flow: Upload -> Preview -> Importing -> Result.
  *
  * The preview is display-only: the import request re-uploads the original
@@ -130,8 +142,12 @@ export default function App() {
                   <td>{r.name}</td>
                   <td>{r.surname}</td>
                   <td>{r.email}</td>
-                  <td>{r.status}</td>
-                  <td>{r.error ?? ''}</td>
+                  <td>
+                    <span className={`badge ${r.status === 'valid' ? 'badge-ok' : 'badge-bad'}`}>
+                      {sentenceCase(r.status)}
+                    </span>
+                  </td>
+                  <td className="problem">{r.error ? sentenceCase(r.error) : ''}</td>
                 </tr>
               ))}
             </tbody>

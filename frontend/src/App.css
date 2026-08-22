@@ -111,11 +111,25 @@ th {
   background: #fdf3f3;
 }
 
-.row-invalid td:nth-child(5),
-.row-invalid td:nth-child(6) {
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.badge-ok {
+  background: #e3f3e8;
+  color: #1c7c3c;
+}
+
+.badge-bad {
+  background: #fbe3e4;
   color: #b3261e;
 }
 
-.row-valid td:nth-child(5) {
-  color: #1c7c3c;
+.problem {
+  color: #b3261e;
 }
