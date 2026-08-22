@@ -87,7 +87,7 @@ flags, so the same command works unchanged in a shell, a container and CI.
 Terminal 1 — API:
 
 ```bash
-php -S localhost:8000 -t public public/index.php
+composer serve    # php -S localhost:8000 -t public public/index.php
 ```
 
 Terminal 2 — UI dev server (proxies `/api` to the PHP server):

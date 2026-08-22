@@ -24,6 +24,7 @@
         }
     },
     "scripts": {
+        "serve": "php -S localhost:8000 -t public public/index.php",
         "lint": "phpcs",
         "lint:fix": "phpcbf",
         "test": "phpunit",
