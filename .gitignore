@@ -1,0 +1,13 @@
+# PHP
+/vendor/
+.env
+.phpunit.result.cache
+
+# Node
+node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
